@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="d-flex flex-column justify-content-center align-items-center text-dark pt-5 pb-5">
+        <div class="d-flex flex-column align-items-start">
+          {% for keys,values in reservationsEcoles.items %}
+                <span class="text-center my-2">{{keys}} : {{values}} {%if values > 1 %} Réservations prises {%else%} Réservation prise{%endif%} </span>
+          {% endfor %}
+        </div>
+      <a type="button" class="btn btn-primary shadow  mt-5" href="{% url 'reservation' %}">Réservations Ecoles</a>
+    </div>
+
+
+{% endblock %}
